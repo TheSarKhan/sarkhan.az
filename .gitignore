@@ -1,0 +1,24 @@
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Apple Wallet signing keys & certificates (NEVER commit)
+*.p12
+*.pfx
+*.pem
+*.key
+*.cer
+*.crt
+*.der
+*.mobileprovision
+*.certSigningRequest
+certs/
+secrets/
+
+# Generated packages
+*.pkpass
+
+# Dependencies & OS
+node_modules/
+.DS_Store

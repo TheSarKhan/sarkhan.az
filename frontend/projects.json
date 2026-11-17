@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "voint",
+    "name": "Voint",
+    "url": "https://voint.az/",
+    "role": "Founder",
+    "az": "Voint öz startapımdır. Təsisçi kimi məhsulun inkişafı və full-stack proqramlaşdırma ilə məşğulam.",
+    "en": "I founded Voint and work on product development and full-stack engineering."
+  },
+  {
+    "slug": "ces",
+    "name": "Construction Equipment Services",
+    "url": "https://ces.com.az/",
+    "role": "Head of Product",
+    "az": "Şirkətin vebsayt layihəsində məhsul strategiyasını və yol xəritəsini qurmuş, komanda formalaşdıraraq layihəni sıfırdan bazara çıxarmışam.",
+    "en": "I defined the product strategy and roadmap for the company website, formed the team, and led the project from inception to launch."
+  },
+  {
+    "slug": "fanus",
+    "name": "Fanus OPC",
+    "url": "https://fanusopc.com/",
+    "role": "Product Owner",
+    "az": "Onlayn psixoloji dəstək platformasının məhsul vizyonunu formalaşdırmış, təsdiqlənmiş psixoloqlara müraciət və seans rezervasiyası funksionallıqlarını komandayla birgə həyata keçirmişəm.",
+    "en": "I defined the vision for an online psychological support platform and worked with the team to build appointment requests and session booking with verified psychologists."
+  },
+  {
+    "slug": "testup",
+    "name": "Testup",
+    "url": "https://testup.az/",
+    "role": "Product Owner",
+    "az": "Məhsulun vizyonunu və funksionallıqlarını müəyyən etmiş, komandanı idarə etmişəm. Layihənin büdcə və vaxt çərçivəsini uğurla idarə etmişəm.",
+    "en": "I defined the product vision and features, led the team, and managed the project budget and schedule."
+  },
+  {
+    "slug": "avankart",
+    "name": "Avankart",
+    "url": "https://avankart.az/",
+    "role": "IT Project Manager",
+    "az": "Backend komandasına rəhbərlik etməklə layihənin planlaşdırılması və idarə edilməsi ilə məşğul olmuşam, digər komandalarla sıx əməkdaşlıq qurmuşam.",
+    "en": "I led the backend team, managed project planning and delivery, and coordinated with other teams."
+  },
+  {
+    "slug": "industry4",
+    "name": "Industry4",
+    "url": "https://www.industry4.az/",
+    "role": "IT Biznes Analitik",
+    "az": "Şirkətlərin müraciətlərini qəbul edən sistem və müraciətlərin rol əsasında idarə olunması üçün admin panel qurmuşam.",
+    "en": "I built a system to receive company applications and an admin panel to manage them with role-based access."
+  },
+  {
+    "slug": "rrgroup",
+    "name": "RR Group",
+    "url": "https://rrgroup.az/",
+    "role": "Product Owner",
+    "az": "Müştəri tələblərini əsas alaraq məhsulun vizyonunu formalaşdırmış, köhnə dizaynı uğurla yeniləyərək məhsulu təhvil vermişəm.",
+    "en": "I defined the product vision from client requirements, led a redesign, and delivered the updated product."
+  }
+]

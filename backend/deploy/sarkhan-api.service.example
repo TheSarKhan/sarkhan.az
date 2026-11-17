@@ -1,0 +1,18 @@
+[Unit]
+Description=Sarkhan Digital Identity API (Apple Wallet & vCard)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/sarkhan.az/backend
+EnvironmentFile=/etc/sarkhan-wallet/sarkhan-api.env
+ExecStart=/usr/bin/node /var/www/sarkhan.az/backend/src/server.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadOnlyPaths=/etc/sarkhan-wallet/certs
+
+[Install]
+WantedBy=multi-user.target

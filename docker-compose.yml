@@ -1,0 +1,19 @@
+services:
+  sarkhan-api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: sarkhan-api
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3015
+    ports:
+      - "127.0.0.1:3015:3015"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3015/api/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

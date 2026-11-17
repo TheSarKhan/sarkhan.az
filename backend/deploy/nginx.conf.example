@@ -1,0 +1,41 @@
+server {
+    listen 443 ssl http2;
+    server_name sarkhan.az www.sarkhan.az;
+
+    # Static site build output synced by the deploy workflow.
+    root /var/www/sarkhan.az;
+    index index.html;
+    error_page 404 /404.html;
+
+    if ($host = www.sarkhan.az) {
+        return 301 https://sarkhan.az$request_uri;
+    }
+
+    location ~ ^/zehra(?:/index[.]html|/)?$ {
+        return 301 https://sarkhan.az/zara/$is_args$args;
+    }
+
+    # Use the original request to avoid redirecting internal index lookups.
+    if ($request_uri ~ "^(/(?:en/|card/|en/card/|zara/|layiheler/[a-z0-9-]+/|en/projects/[a-z0-9-]+/)?)index\.html(?:\?|$)") {
+        return 301 https://sarkhan.az$1$is_args$args;
+    }
+
+    location = /404.html {
+        internal;
+    }
+
+    # Static routes (/ , /en/ , /card/ , /en/card/ , /layiheler/... , /en/projects/...)
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # Proxy contact, Wallet and vCard endpoints to Node.js.
+    location /api/ {
+        proxy_pass http://127.0.0.1:3001;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}

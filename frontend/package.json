@@ -1,0 +1,15 @@
+{
+  "name": "sarkhan-portfolio",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "qrcode": "^1.5.4",
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

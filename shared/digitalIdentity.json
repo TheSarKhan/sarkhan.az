@@ -1,0 +1,69 @@
+{
+  "fullName": "Sərxan Babayev",
+  "firstName": "Sərxan",
+  "lastName": "Babayev",
+  "localizedNames": {
+    "az": {
+      "fullName": "Sərxan Babayev",
+      "firstName": "Sərxan",
+      "lastName": "Babayev"
+    },
+    "en": {
+      "fullName": "Sarkhan Babayev",
+      "firstName": "Sarkhan",
+      "lastName": "Babayev"
+    }
+  },
+  "roles": [
+    "Product Owner",
+    "IT Project Manager",
+    "Business Analyst"
+  ],
+  "localizedRoles": {
+    "az": [
+      "Product Owner",
+      "IT Project Manager",
+      "IT Biznes Analitik"
+    ],
+    "en": [
+      "Product Owner",
+      "IT Project Manager",
+      "Business Analyst"
+    ]
+  },
+  "location": "Baku, Azerbaijan",
+  "website": "https://sarkhan.az",
+  "cardUrl": "https://sarkhan.az/card/",
+  "enCardUrl": "https://sarkhan.az/en/card/",
+  "avatarUrl": "/assets/portrait-seated.webp",
+  "profilePhotoUrl": "/assets/profile.webp",
+  "email": "serxan.babayev.06@gmail.com",
+  "phone": "",
+  "company": "",
+  "linkedin": "https://www.linkedin.com/in/sarkhan-babayev/",
+  "github": "https://github.com/TheSarKhan/",
+  "cvUrls": {
+    "az": {
+      "po": "/cv/po-az.pdf",
+      "itPm": "/cv/it-pm-az.pdf",
+      "itBa": "/cv/it-ba-az.pdf"
+    },
+    "en": {
+      "po": "/cv/po-en.pdf",
+      "itPm": "/cv/it-pm-en.pdf",
+      "itBa": "/cv/it-ba-en.pdf"
+    }
+  },
+  "brand": {
+    "organizationName": "Sarkhan Digital Identity",
+    "description": "Sərxan Babayev — Digital Business Card",
+    "palette": {
+      "deepGreen": "#064E3B",
+      "darkForestGreen": "#073B31",
+      "goldAccent": "#D4AF67",
+      "ivory": "#F8F7F3",
+      "white": "#FFFFFF",
+      "text": "#172421"
+    }
+  }
+}

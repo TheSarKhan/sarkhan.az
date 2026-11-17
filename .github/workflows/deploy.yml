@@ -1,0 +1,73 @@
+name: Build, Test & Deploy sarkhan.az
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install & test backend
+        working-directory: backend
+        run: |
+          npm ci
+          npm test
+
+      - name: Install & build frontend
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+
+      - name: Upload frontend dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend/dist/
+
+  deploy:
+    needs: test-and-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download frontend dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend/dist
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "${{ secrets.VPS_PORT || '22' }}" -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Sync frontend static build & backend to VPS
+        run: |
+          PORT="${{ secrets.VPS_PORT || '22' }}"
+          TARGET="${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}"
+          ssh -p "$PORT" "$TARGET" "mkdir -p /var/www/sarkhan.az /opt/sarkhan.az"
+          rsync -az --delete -e "ssh -p $PORT" frontend/dist/ "$TARGET:/var/www/sarkhan.az/"
+          rsync -az --delete --exclude 'node_modules' --exclude '.env' \
+            -e "ssh -p $PORT" \
+            backend shared wallet docker-compose.yml \
+            "$TARGET:/opt/sarkhan.az/"
+
+      - name: Rebuild and restart sarkhan-api container
+        run: |
+          PORT="${{ secrets.VPS_PORT || '22' }}"
+          TARGET="${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}"
+          ssh -p "$PORT" "$TARGET" "cd /opt/sarkhan.az && docker compose up -d --build --remove-orphans"
